@@ -109,6 +109,24 @@ dt{font-weight:600}dd{margin:0;color:var(--muted)}
 .ph{flex:0 0 auto;width:14.5rem}
 .ph .scr{position:relative;overflow:hidden;aspect-ratio:9/19;background:#fff;border:8px solid #1b1b1b;border-radius:2.2rem;box-shadow:0 10px 24px #0003}
 .scr iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#fff}
+
+:root{--err:#B3261E}
+@media(prefers-color-scheme:dark){:root{--err:#FF9A8F}}
+.form{display:grid;gap:1.1rem;max-width:36rem;margin-top:1.75rem}
+.form h3{font-size:1.4rem;font-weight:800;margin:0}
+.fld label{display:block;font-weight:600;margin-bottom:.3rem}
+.fld input,.fld textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:.6rem;padding:.65rem .8rem}
+.fld textarea{min-height:8rem;resize:vertical}
+.fld input:focus,.fld textarea:focus{border-color:var(--accent)}
+.fld.bad input,.fld.bad textarea{border-color:var(--err)}
+.err{color:var(--err);font-size:.92rem;margin:.3rem 0 0}
+.err:empty{display:none}
+.cnt{color:var(--muted);font-size:.85rem;text-align:right;margin:.2rem 0 0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fmsg{margin:0;padding:.7rem .9rem;border-radius:.6rem;border:1px solid var(--line);background:var(--card)}
+.fmsg:empty{display:none}
+.fmsg.ok{border-color:var(--accent)}
+.fmsg.no{border-color:var(--err);color:var(--err)}
 footer{max-width:56rem;border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.95rem}
 @media(max-width:56rem){
 body{display:block}
@@ -147,7 +165,7 @@ dl{grid-template-columns:1fr;gap:.1rem}dd{margin-bottom:.5rem}
       <a href="https://www.linkedin.com/in/lidia-florencia-areco/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
       <a href="https://github.com/Florare83" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
     </div>
-    <a class="btn" href="Areco_Lidia_CV.pdf" download>Descargar CV</a>
+    <a class="btn" href="CV_Lidia_Florencia_Areco.pdf" download>Descargar CV</a>
   </div>
 </aside>
 
@@ -256,13 +274,16 @@ dl{grid-template-columns:1fr;gap:.1rem}dd{margin-bottom:.5rem}
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p class="lead">Busco una pasantía o un puesto junior en desarrollo web o tecnología educativa. Escribime.</p>
-    <ul class="ct">
-      <li>Email: <a href="mailto:florare83@gmail.com">florare83@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/lidia-florencia-areco/">linkedin.com/in/lidia-florencia-areco</a></li>
-      <li>GitHub: <a href="https://github.com/Florare83">github.com/Florare83</a></li>
-      <li>CV: <a href="Areco_Lidia_CV.pdf" download>Descargar en PDF</a></li>
-    </ul>
+    <p class="lead">Busco una pasantía o un puesto junior en desarrollo de software o tecnología educativa. Escribime.</p>
+    <form class="form" id="cf" novalidate aria-label="Formulario de contacto">
+      <div class="fld"><label for="cn">Nombre</label><input id="cn" name="nombre" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="cn-e"><p class="err" id="cn-e" aria-live="polite"></p></div>
+      <div class="fld"><label for="ce">Email</label><input id="ce" name="email" type="email" autocomplete="email" required maxlength="120" aria-describedby="ce-e"><p class="err" id="ce-e" aria-live="polite"></p></div>
+      <div class="fld"><label for="cs">Asunto <span style="font-weight:400;color:var(--muted)">(opcional)</span></label><input id="cs" name="asunto" type="text" maxlength="100"></div>
+      <div class="fld"><label for="cm">Mensaje</label><textarea id="cm" name="mensaje" required minlength="10" maxlength="1000" aria-describedby="cm-e cm-c"></textarea><p class="err" id="cm-e" aria-live="polite"></p><p class="cnt" id="cm-c">0 / 1000</p></div>
+      <div class="hp" aria-hidden="true"><label>No completar<input name="web" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" type="submit">Enviar mensaje</button>
+      <p class="fmsg" id="cf-m" role="status"></p>
+    </form>
   </section>
   <footer>© 2026 Lidia Florencia Areco. Salta, Argentina. Todos los derechos reservados.</footer>
 </main>
@@ -298,7 +319,23 @@ const R={Proyectos:['ControlAR está en producción y fue distinguido entre los 
 Tecnologías:['Acá tenés lo que uso y para qué.','#stack'],'Descargar CV':['Listo, ahí va mi CV en PDF.','cv'],Contacto:['Escribime, me encanta charlar.','#contacto']};
 (async()=>{await say('Hola, soy Florencia 👋');await say('Soy profesora de Informática y desarrolladora junior.');await say('¿Qué querés ver primero?');
 Object.keys(R).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=async()=>{await say(k,'me');await say(R[k][0]);
-if(R[k][1]==='cv'){const a=document.createElement('a');a.href='Areco_Lidia_CV.pdf';a.download='';a.click()}else $(R[k][1]).scrollIntoView({behavior:reduce?'auto':'smooth'})};chips.append(b)})})();
+if(R[k][1]==='cv'){const a=document.createElement('a');a.href='CV_Lidia_Florencia_Areco.pdf';a.download='';a.click()}else $(R[k][1]).scrollIntoView({behavior:reduce?'auto':'smooth'})};chips.append(b)})})();
+// formulario de contacto con validación
+(()=>{const f=$('#cf'),m=$('#cf-m'),TO='florare83@gmail.com';
+const rules={cn:v=>!v.trim()?'Escribí tu nombre.':v.trim().length<2?'El nombre es muy corto.':'',
+ce:v=>!v.trim()?'Escribí tu email.':!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())?'Ese email no parece válido. Ejemplo: nombre@correo.com':'',
+cm:v=>!v.trim()?'Escribí tu mensaje.':v.trim().length<10?'Contame un poco más (mínimo 10 caracteres).':''};
+const chk=el=>{const msg=rules[el.id](el.value);$('#'+el.id+'-e').textContent=msg;el.closest('.fld').classList.toggle('bad',!!msg);el.setAttribute('aria-invalid',!!msg);return !msg};
+Object.keys(rules).forEach(id=>{const el=$('#'+id);el.addEventListener('blur',()=>chk(el));el.addEventListener('input',()=>{if(el.closest('.fld').classList.contains('bad'))chk(el)})});
+$('#cm').addEventListener('input',e=>$('#cm-c').textContent=e.target.value.length+' / 1000');
+f.addEventListener('submit',e=>{e.preventDefault();m.className='fmsg';m.textContent='';
+if(f.web.value)return;
+const bad=Object.keys(rules).map(id=>$('#'+id)).filter(el=>!chk(el));
+if(bad.length){bad[0].focus();m.className='fmsg no';m.textContent='Revisá los campos marcados.';return}
+const sub=f.asunto.value.trim()||'Contacto desde tu portfolio';
+const body=`Nombre: ${f.nombre.value.trim()}\r\nEmail: ${f.email.value.trim()}\r\n\r\n${f.mensaje.value.trim()}`;
+location.href=`mailto:${TO}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+m.className='fmsg ok';m.textContent='Listo. Se abrió tu programa de correo con el mensaje armado: solo falta que toques Enviar.'})})();
 // ítem activo del menú
 const links=[...document.querySelectorAll('nav a')];
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'}).observe&&document.querySelectorAll('main section').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'}).observe(s));

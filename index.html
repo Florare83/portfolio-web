@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lidia Florencia Areco | Desarrolladora Junior</title>
+<meta name="description" content="Portfolio de Lidia Florencia Areco, desarrolladora junior y profesora de Informática. Proyectos con React, FastAPI, PHP y Laravel.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F4;--card:#FFF;--ink:#14231E;--muted:#4B5F57;--line:#C5D3CB;--accent:#1F5C4A;--on:#FFF;--mark:#F0D35A;
+--f:Figtree,"Segoe UI",system-ui,sans-serif;box-sizing:border-box}
+@media(prefers-color-scheme:dark){:root{--bg:#0F1A16;--card:#16251F;--ink:#E5EEE9;--muted:#9DB3A9;--line:#2A3B34;--accent:#6FCFA8;--on:#0F1A16;--mark:#B89A1F;color-scheme:dark}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--f);display:flex;min-height:100vh}
+a{color:var(--accent);text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px;border-radius:4px}
+aside{width:16.5rem;flex:none;position:sticky;top:0;height:100vh;overflow-y:auto;padding:2rem 1.25rem 1.5rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:1.5rem}
+aside .who{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.pic{width:100%;max-width:7.5rem;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:60% 25%;flex:none;background:var(--mark);border:5px solid var(--card);box-shadow:0 0 0 3px var(--accent),0 10px 24px #0003}
+aside strong{display:block;font-weight:800;font-size:1.3rem;line-height:1.2}
+aside small{display:block;color:var(--muted);font-size:1rem;margin-top:.2rem}
+nav{display:flex;flex-direction:column;gap:.2rem}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:.45rem .7rem;border-radius:.5rem}
+nav a:hover,nav a.on{background:var(--card);box-shadow:inset 3px 0 var(--accent)}
+.soc{margin-top:auto;display:flex;flex-direction:column;align-items:stretch;gap:1rem;font-size:.95rem}
+.ico{display:flex;gap:.8rem;justify-content:center}
+.ico a{width:2.9rem;height:2.9rem;display:grid;place-items:center;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);transition:transform .2s,border-color .2s,color .2s}
+.ico a:hover{transform:translateY(-3px);border-color:var(--accent);color:var(--accent)}
+.ico svg{width:1.45rem;height:1.45rem;fill:currentColor}
+.btn{display:inline-block;padding:.65rem 1.1rem;border-radius:.6rem;font-weight:600;text-decoration:none;background:var(--accent);color:var(--on);border:2px solid var(--accent);text-align:center;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn.g{background:none;color:var(--accent)}
+main{flex:1;min-width:0;padding:0 clamp(1.1rem,5vw,3.5rem)}
+section{max-width:56rem;padding:clamp(2.5rem,7vw,4.5rem) 0;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h1{font-weight:800;font-size:clamp(2.2rem,6.5vw,3.8rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 1.2rem}
+h2{font-weight:800;font-size:clamp(1.6rem,4.5vw,2.1rem);line-height:1.15;margin:0 0 .5rem}
+.words span{display:inline-block;animation:up .6s both;animation-delay:calc(var(--i)*90ms)}
+@keyframes up{from{opacity:0;transform:translateY(.55em)}}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1rem;display:flex;flex-direction:column;gap:.6rem;height:21rem}
+#log{flex:1;overflow:auto;display:flex;flex-direction:column;gap:.5rem}
+.msg{margin:0;padding:.55rem .85rem;border-radius:1rem;max-width:88%;font-size:1rem;line-height:1.45;animation:up .35s both}
+.msg.bot{background:var(--bg);border-bottom-left-radius:.25rem}
+.msg.me{background:var(--accent);color:var(--on);align-self:flex-end;border-bottom-right-radius:.25rem}
+.msg i{display:inline-block;width:.45rem;height:.45rem;margin:0 .12rem;border-radius:50%;background:var(--muted);animation:b 1s infinite}
+.msg i:nth-child(2){animation-delay:.15s}.msg i:nth-child(3){animation-delay:.3s}
+@keyframes b{50%{transform:translateY(-.3rem)}}
+#chips{display:flex;flex-wrap:wrap;gap:.4rem}
+#chips button{background:none;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:.3rem .8rem;font:600 .95rem var(--f);cursor:pointer}
+#chips button:hover{background:var(--accent);color:var(--on)}
+.cmp{position:relative;aspect-ratio:10/11;border-radius:1rem;overflow:hidden;border:1px solid var(--line);touch-action:pan-y;max-width:24rem}
+.cmp .l{position:absolute;inset:0}
+.cmp .l svg,.cmp .l img{width:100%;height:100%;display:block}.cmp .l img{object-fit:cover}
+.l1{background:var(--mark)}.l2{background:#12201B;clip-path:inset(0 0 0 var(--p,50%))}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;background:#fff;box-shadow:0 0 0 1px #0004}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp:focus-within{outline:3px solid var(--mark)}
+.tag{position:absolute;bottom:.6rem;background:#000a;color:#fff;font-size:.85rem;padding:.15rem .6rem;border-radius:999px}
+.hint{color:var(--muted);font-size:.95rem;margin:.6rem 0 0}
+.lead{color:var(--muted);max-width:38rem;margin:0 0 1.75rem}
+.proj{padding:1.5rem 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font-size:1.4rem;font-weight:800;line-height:1.2;margin:0 0 .5rem}
+.proj p{margin:0 0 .9rem;max-width:42rem}
+.badge{display:inline-block;background:var(--mark);color:#14231E;padding:.1rem .65rem;border-radius:999px;font-size:.9rem;font-weight:600;margin-bottom:.6rem}
+dl{display:grid;grid-template-columns:7rem 1fr;gap:.4rem 1rem;margin:0 0 1rem;max-width:42rem}
+dt{font-weight:600}dd{margin:0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chips span{border:1px solid var(--line);background:var(--card);border-radius:.4rem;padding:0 .5rem;font-size:.9rem;color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;list-style:none;margin:0;padding:0;font-weight:600}
+.links .n{color:var(--muted);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.9rem}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:.8rem;padding:1rem}
+.tc h3{margin:0 0 .25rem;font-size:1.05rem;font-weight:800}
+.tc p{margin:0;color:var(--muted);font-size:.97rem;line-height:1.45}
+.tc{display:flex;flex-direction:column;gap:.7rem}.tc .top{display:flex;align-items:center;gap:.7rem}
+.mono{width:2.5rem;height:2.5rem;border-radius:.65rem;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#fff;background:var(--c);flex:none}
+[data-c=f]{--c:#2F7FB5}[data-c=b]{--c:#1F5C4A}[data-c=d]{--c:#B2602B}[data-c=q]{--c:#7A4FA8}
+.tc .chips{margin-top:auto;align-items:center}.tc .chips b{font-size:.85rem;font-weight:600;color:var(--muted);margin-right:.2rem}
+.grid{grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
+.ct{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.5rem}
+
+.br{animation:br 4s ease-in-out infinite}
+@keyframes br{50%{transform:translateY(-1.5px)}}
+.bk{transform-box:fill-box;transform-origin:center;animation:bk 5s infinite}
+@keyframes bk{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.arm{transform-origin:130px 188px;animation:sw 4s ease-in-out infinite}
+@keyframes sw{50%{transform:rotate(7deg)}}
+.ch{animation:ch 8s infinite both}
+.c2{animation-delay:.8s}.c3{animation-delay:1.6s}
+@keyframes ch{0%{opacity:0}12%,85%{opacity:1}95%,100%{opacity:0}}
+.ul{stroke-dasharray:1;animation:dr 8s .6s infinite both}
+@keyframes dr{0%{stroke-dashoffset:1}15%,85%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:1}}
+.cl{transform-box:fill-box;transform-origin:0 50%;animation:ty 3s ease-in-out infinite}
+@keyframes ty{0%,100%{transform:scaleX(.3)}50%{transform:scaleX(1)}}
+.fl{fill:#6FCFA8;font:800 14px monospace;animation:fl 4s ease-in-out infinite}
+.f2{animation-delay:1s}.f3{animation-delay:2s}
+@keyframes fl{50%{transform:translateY(-6px)}}
+.gl{animation:gl 2.5s ease-in-out infinite}
+@keyframes gl{50%{opacity:.5}}
+.devices{display:flex;flex-wrap:wrap;gap:2.5rem 3rem;align-items:flex-end;justify-content:center;margin-top:1.5rem}
+.lap{flex:1 1 28rem;max-width:40rem}
+.lap .scr{position:relative;overflow:hidden;aspect-ratio:16/10;background:#fff;border:10px solid #1b1b1b;border-bottom-width:12px;border-radius:.9rem .9rem 0 0}
+.lap .base{height:.9rem;width:112%;margin-left:-6%;background:linear-gradient(#d5dbd8,#a4aeaa);border-radius:0 0 1.2rem 1.2rem;box-shadow:0 8px 18px #0003}
+.ph{flex:0 0 auto;width:14.5rem}
+.ph .scr{position:relative;overflow:hidden;aspect-ratio:9/19;background:#fff;border:8px solid #1b1b1b;border-radius:2.2rem;box-shadow:0 10px 24px #0003}
+.scr iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#fff}
+footer{max-width:56rem;border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.95rem}
+@media(max-width:56rem){
+body{display:block}
+aside{position:sticky;z-index:5;width:auto;height:auto;flex-direction:row;align-items:center;gap:.8rem;padding:.6rem 1rem;border-right:0;border-bottom:1px solid var(--line);background:var(--bg);padding-top:max(.6rem,env(safe-area-inset-top))}
+aside small,.soc{display:none}
+aside{overflow:visible}
+aside .who{flex-direction:row;text-align:left;gap:.7rem}
+.pic{width:2.4rem;max-width:none;border-width:0;box-shadow:none}
+aside strong{font-size:.95rem}
+nav{flex-direction:row;overflow-x:auto;margin-left:auto}
+nav a{white-space:nowrap;padding:.35rem .55rem}
+.hero{grid-template-columns:1fr}
+section{scroll-margin-top:3.5rem}
+dl{grid-template-columns:1fr;gap:.1rem}dd{margin-bottom:.5rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="who">
+    <img class="pic" src="foto.jpg" alt="Florencia Areco">
+    <div><strong>Florencia Areco</strong><small>Desarrolladora Junior</small></div>
+  </div>
+  <nav aria-label="Principal">
+    <a href="#inicio" class="on">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#vista">Vista web</a>
+    <a href="#stack">Tecnologías</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="soc">
+    <div class="ico">
+      <a href="mailto:florare83@gmail.com" aria-label="Gmail" title="Gmail"><svg viewBox="0 0 24 24" style="fill:none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7l9 6.5L21 7"/></svg></a>
+      <a href="https://www.linkedin.com/in/lidia-florencia-areco/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.63 4.75 6.05V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+      <a href="https://github.com/Florare83" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    </div>
+    <a class="btn" href="Areco_Lidia_CV.pdf" download>Descargar CV</a>
+  </div>
+</aside>
+
+<main>
+  <section id="inicio">
+    <h1 class="words">Hola, soy Florencia. Enseño informática y programo.</h1>
+    <div class="hero">
+      <div>
+        <div class="chat">
+          <div id="log" role="log" aria-live="polite"></div>
+          <div id="chips"></div>
+        </div>
+        <noscript><p>Profesora de Informática y desarrolladora web junior. <a href="#proyectos">Ver proyectos</a>.</p></noscript>
+      </div>
+      <div>
+        <div class="cmp" id="cmp">
+          <div class="l l1"></div>
+          <div class="l l2"></div>
+          <span class="tag" style="left:.6rem">Docente</span>
+          <span class="tag" style="right:.6rem">Desarrolladora</span>
+          <div class="bar"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Deslizá para comparar mi versión docente y mi versión desarrolladora">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <p class="lead">Tres proyectos académicos del IES 6001, con uso de IA.</p>
+
+    <article class="proj">
+      <span class="badge">Mejores Proyectos 2026, IES 6001</span>
+      <h3>ControlAR, sistema web para un club de juegos de mesa</h3>
+      <p>Catálogo y tienda, reservas de la ludoteca, préstamos y devoluciones, y panel de administración. Está publicado en producción, con más de 70 endpoints, 13 tablas y más de 150 pruebas automatizadas.</p>
+      <dl>
+        <dt>Mi rol</dt><dd>Líder de un equipo de 4 personas. Definí los requisitos y las reglas de negocio, y revisé, probé e integré el código generado con IA.</dd>
+        <dt>Tecnologías</dt><dd class="chips"><span>React</span><span>Vite</span><span>FastAPI</span><span>PostgreSQL</span><span>JWT</span><span>pytest</span><span>Render</span></dd>
+      </dl>
+      <ul class="links">
+        <li><a href="https://github.com/Florare83/ControlAR">Repositorio en GitHub</a></li>
+        <li><a href="https://controlar-de64.onrender.com/">Demo en vivo</a></li>
+      </ul>
+    </article>
+
+    <article class="proj">
+      <h3>El Rincón de Hermes (ERDH), sitio con panel administrativo</h3>
+      <p>Sitio de 11 vistas con registro, inicio de sesión y roles, y un panel para gestionar el catálogo de juegos. Base de datos de 10 tablas hasta 3FN y panel con arquitectura MVC y consultas preparadas (PDO).</p>
+      <dl>
+        <dt>Mi rol</dt><dd>Desarrollo individual. Diseñé la base de datos, armé el panel y audité la accesibilidad con Lighthouse.</dd>
+        <dt>Tecnologías</dt><dd class="chips"><span>PHP 8</span><span>MySQL</span><span>Bootstrap 5</span><span>JavaScript</span><span>PDO</span></dd>
+      </dl>
+      <ul class="links">
+        <li><a href="https://github.com/Florare83/ERDH">Repositorio en GitHub</a></li>
+        <li class="n">Sin demo en línea (requiere PHP y MySQL)</li>
+      </ul>
+    </article>
+
+    <article class="proj">
+      <h3>Eventos con Laravel</h3>
+      <p>Aplicación en Laravel 12 que muestra los próximos eventos del club y los expone como JSON en <code>/api/eventos</code>. Está en la carpeta <code>clase10/laravel-eventos</code> del repositorio de ERDH.</p>
+      <dl>
+        <dt>Mi rol</dt><dd>Desarrollo individual: modelo, controlador, vista y rutas.</dd>
+        <dt>Tecnologías</dt><dd class="chips"><span>Laravel 12</span><span>Eloquent</span><span>Blade</span><span>Bootstrap</span><span>MySQL</span></dd>
+      </dl>
+      <ul class="links">
+        <li><a href="https://github.com/Florare83/ERDH">Repositorio en GitHub</a></li>
+        <li class="n">Sin demo en línea</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="vista">
+    <h2>Así se ve ControlAR</h2>
+    <p class="lead">El mismo sistema en computadora y en celular. Podés navegar dentro de cada pantalla.</p>
+    <div class="devices">
+      <figure class="lap" style="margin:0">
+        <div class="scr" data-w="1280"><iframe src="https://controlar-de64.onrender.com/nosotros" title="ControlAR en computadora" loading="lazy"></iframe></div>
+        <div class="base"></div>
+      </figure>
+      <figure class="ph" style="margin:0">
+        <div class="scr" data-w="390"><iframe src="https://controlar-de64.onrender.com/nosotros" title="ControlAR en celular" loading="lazy"></iframe></div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>Tecnologías</h2>
+    <p class="lead">Lo que uso y para qué me sirve.</p>
+    <div class="grid">
+<div class="tc" data-c="f"><div class="top"><span class="mono" aria-hidden="true">Re</span><h3>React</h3></div><p>Armo interfaces por componentes, con rutas y estado, que consumen la API del sistema.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span></div></div>
+<div class="tc" data-c="f"><div class="top"><span class="mono" aria-hidden="true">JS</span><h3>JavaScript</h3></div><p>Doy interactividad a las páginas y conecto el navegador con el servidor.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span><span>ERDH</span></div></div>
+<div class="tc" data-c="f"><div class="top"><span class="mono" aria-hidden="true">H5</span><h3>HTML y CSS</h3></div><p>Estructuro contenido accesible y lo adapto para que se vea bien en cualquier pantalla.</p><div class="chips"><b>Lo uso en</b><span>Todos</span></div></div>
+<div class="tc" data-c="f"><div class="top"><span class="mono" aria-hidden="true">Bs</span><h3>Bootstrap</h3></div><p>Maqueto rápido con una grilla responsive y componentes ya probados.</p><div class="chips"><b>Lo uso en</b><span>ERDH</span><span>Eventos</span></div></div>
+<div class="tc" data-c="b"><div class="top"><span class="mono" aria-hidden="true">Fa</span><h3>FastAPI</h3></div><p>Construyo APIs REST que validan los datos y protegen cada acción con JWT y roles.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span></div></div>
+<div class="tc" data-c="b"><div class="top"><span class="mono" aria-hidden="true">Py</span><h3>Python</h3></div><p>Escribo la lógica de negocio del servidor y los scripts que la acompañan.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span></div></div>
+<div class="tc" data-c="b"><div class="top"><span class="mono" aria-hidden="true">Ph</span><h3>PHP</h3></div><p>Desarrollo sitios dinámicos con sesiones, roles y arquitectura MVC.</p><div class="chips"><b>Lo uso en</b><span>ERDH</span></div></div>
+<div class="tc" data-c="b"><div class="top"><span class="mono" aria-hidden="true">La</span><h3>Laravel</h3></div><p>Ordeno el código con un framework completo: rutas, ORM y vistas Blade.</p><div class="chips"><b>Lo uso en</b><span>Eventos</span></div></div>
+<div class="tc" data-c="d"><div class="top"><span class="mono" aria-hidden="true">Pg</span><h3>PostgreSQL</h3></div><p>Modelo bases de datos relacionales que cumplen las formas normales y cuidan la integridad entre tablas.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span></div></div>
+<div class="tc" data-c="d"><div class="top"><span class="mono" aria-hidden="true">My</span><h3>MySQL</h3></div><p>Diseño esquemas normalizados y los consulto con SQL y consultas preparadas, para evitar inyección SQL.</p><div class="chips"><b>Lo uso en</b><span>ERDH</span><span>Eventos</span></div></div>
+<div class="tc" data-c="q"><div class="top"><span class="mono" aria-hidden="true">Pt</span><h3>pytest</h3></div><p>Automatizo pruebas para detectar errores de permisos y reglas de negocio antes de publicar.</p><div class="chips"><b>Lo uso en</b><span>ControlAR</span></div></div>
+<div class="tc" data-c="q"><div class="top"><span class="mono" aria-hidden="true">Gh</span><h3>Git y GitHub</h3></div><p>Versiono el código y trabajo en equipo con ramas y repositorios compartidos.</p><div class="chips"><b>Lo uso en</b><span>Todos</span></div></div>
+</div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p class="lead">Busco una pasantía o un puesto junior en desarrollo web o tecnología educativa. Escribime.</p>
+    <ul class="ct">
+      <li>Email: <a href="mailto:florare83@gmail.com">florare83@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/lidia-florencia-areco/">linkedin.com/in/lidia-florencia-areco</a></li>
+      <li>GitHub: <a href="https://github.com/Florare83">github.com/Florare83</a></li>
+      <li>CV: <a href="Areco_Lidia_CV.pdf" download>Descargar en PDF</a></li>
+    </ul>
+  </section>
+  <footer>© 2026 Lidia Florencia Areco. Salta, Argentina. Todos los derechos reservados.</footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// animación de palabras del título
+document.querySelectorAll('.words').forEach(e=>e.innerHTML=e.textContent.split(' ').map((w,i)=>`<span style="--i:${i}">${w}</span>`).join(' '));
+// ilustraciones animadas (docente y desarrolladora)
+const H='#17110F',P=hp=>`<g class="br"><g class="body"><path d="M22 220c0-48 32-68 78-68s78 20 78 68z" fill="#B77F8A"/><path d="M70 158q30 26 60 0" stroke="#E9D3D6" stroke-width="5" fill="none" stroke-linecap="round"/></g><g class="head"><path d="M50 96c-4 44-2 80 14 112l22-30h28l22 30c16-32 18-68 14-112-4-36-28-60-50-60S54 60 50 96z" fill="${H}"/><rect x="86" y="120" width="28" height="36" rx="10" fill="#D9A27C"/><ellipse cx="100" cy="96" rx="43" ry="50" fill="#E3B28D"/><path d="M54 92c0-40 26-56 48-56s48 16 46 56c-8-12-22-22-46-24-26 2-38 12-48 24z" fill="${H}"/><path d="M52 96c-4 44-2 74 10 104l14-6c-8-32-10-62-8-100zM148 96c4 44 2 74-10 104l-14-6c8-32 10-62 8-100z" fill="${H}"/><path d="M68 84q10-6 21-2M111 82q11-4 21 2" stroke="${H}" stroke-width="3" fill="none" stroke-linecap="round"/><g class="eyes"><g class="bk"><ellipse cx="78" cy="98" rx="9" ry="6.5" fill="#fff"/><ellipse cx="122" cy="98" rx="9" ry="6.5" fill="#fff"/><circle class="pu" cx="78" cy="98" r="4.6" fill="#2B1A12"/><circle class="pu" cx="122" cy="98" r="4.6" fill="#2B1A12"/></g></g><path d="M100 104q-4 10 2 12" stroke="#B9805E" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M82 121q18 16 36 0q-18 5-36 0z" fill="#fff" stroke="#8A3B3B" stroke-width="3" stroke-linejoin="round"/>${hp?'<path d="M52 94a48 48 0 0 1 96 0" stroke="#6FCFA8" stroke-width="6" fill="none"/><rect x="43" y="86" width="14" height="28" rx="7" fill="#6FCFA8"/><rect x="143" y="86" width="14" height="28" rx="7" fill="#6FCFA8"/>':''}</g></g>`;
+const teacher=()=>`<svg viewBox="0 0 200 220" role="img" aria-label="Ilustración animada de Florencia como docente, señalando un pizarrón que dice Informática"><rect width="200" height="220" fill="#E8D9B5"/><rect x="8" y="8" width="184" height="104" rx="6" fill="#1F5C4A" stroke="#8A5A2B" stroke-width="5"/><text class="ch" x="100" y="45" text-anchor="middle" font-family="Figtree,sans-serif" font-weight="800" font-size="26" fill="#F2F6F4">Informática</text><path class="ul" pathLength="1" d="M52 56h96" stroke="#F0D35A" stroke-width="3" stroke-linecap="round" fill="none"/><text class="ch c3" x="100" y="73" text-anchor="middle" font-family="monospace" font-weight="700" font-size="13" fill="#B5E3CF">&lt;/&gt;  1 0 1 1  { }</text><rect x="8" y="112" width="184" height="6" fill="#8A5A2B"/><g transform="translate(22,52) scale(.78)">${P(0)}</g><g class="arm"><line x1="160" y1="138" x2="172" y2="62" stroke="#8A5A2B" stroke-width="2.5" stroke-linecap="round"/><path d="M130 190Q150 178 160 142" stroke="#B77F8A" stroke-width="14" fill="none" stroke-linecap="round"/><circle cx="160" cy="138" r="6.5" fill="#E3B28D"/></g></svg>`;
+const coder=()=>`<svg viewBox="0 0 200 220" role="img" aria-label="Ilustración animada de Florencia programando en su computadora, con auriculares"><rect width="200" height="220" fill="#12201B"/><rect x="10" y="12" width="80" height="58" rx="5" fill="#0B1411" stroke="#2A3B34" stroke-width="3"/><rect class="cl" x="18" y="22" width="52" height="4" rx="2" fill="#6FCFA8"/><rect class="cl" style="animation-delay:.4s" x="26" y="32" width="44" height="4" rx="2" fill="#F0D35A"/><rect class="cl" style="animation-delay:.8s" x="26" y="42" width="54" height="4" rx="2" fill="#8EC5F0"/><rect class="cl" style="animation-delay:1.2s" x="18" y="52" width="36" height="4" rx="2" fill="#6FCFA8"/><text class="fl" x="140" y="34">&lt;/&gt;</text><text class="fl f2" x="164" y="78">{ }</text><text class="fl f3" x="150" y="112">def</text><g transform="translate(22,52) scale(.78)">${P(1)}</g><ellipse class="gl" cx="100" cy="168" rx="56" ry="10" fill="#6FCFA8" opacity=".3"/><rect x="46" y="168" width="108" height="52" rx="6" fill="#2B3A35"/><rect x="50" y="172" width="100" height="48" rx="4" fill="#33453F"/><circle cx="100" cy="196" r="5" fill="#6FCFA8" opacity=".85"/></svg>`;
+document.querySelector('.l1').innerHTML=teacher();
+document.querySelector('.l2').innerHTML=coder();
+// vista en computadora y celular: escala el iframe al tamaño del marco
+document.querySelectorAll('.scr[data-w]').forEach(b=>{const f=b.querySelector('iframe'),w=+b.dataset.w;
+const fit=()=>{const k=b.clientWidth/w;f.style.width=w+'px';f.style.height=b.clientHeight/k+'px';f.style.transform=`scale(${k})`};
+fit();new ResizeObserver(fit).observe(b)});
+// slider
+const cmp=$('#cmp');cmp.querySelector('input').addEventListener('input',e=>cmp.style.setProperty('--p',e.target.value+'%'));
+// ojos y cuerpo siguen el puntero
+addEventListener('pointermove',e=>{if(reduce)return;document.querySelectorAll('svg .head').forEach(h=>{const s=h.closest('svg'),r=s.getBoundingClientRect();
+const dx=Math.max(-1,Math.min(1,(e.clientX-r.left-r.width/2)/(innerWidth/2))),dy=Math.max(-1,Math.min(1,(e.clientY-r.top-r.height/2)/(innerHeight/2)));
+s.querySelectorAll('.pu').forEach(p=>p.style.transform=`translate(${dx*5}px,${dy*5}px)`);
+s.querySelector('.eyes').style.transform=`translate(${dx*3}px,${dy*2}px)`;
+h.style.transform=`rotate(${dx*4}deg)`;h.style.transformOrigin='100px 150px';
+s.querySelector('.body').style.transform=`translateX(${dx*3}px)`})});
+// chat inicial
+const log=$('#log'),chips=$('#chips'),sl=ms=>new Promise(r=>setTimeout(r,ms));
+async function say(t,w='bot'){const b=document.createElement('p');b.className='msg '+w;log.append(b);
+if(w==='bot'&&!reduce){b.innerHTML='<i></i><i></i><i></i>';await sl(650)}b.textContent=t;log.scrollTop=log.scrollHeight}
+const R={Proyectos:['ControlAR está en producción y fue distinguido entre los mejores proyectos de 2026.','#proyectos'],
+Tecnologías:['Acá tenés lo que uso y para qué.','#stack'],'Descargar CV':['Listo, ahí va mi CV en PDF.','cv'],Contacto:['Escribime, me encanta charlar.','#contacto']};
+(async()=>{await say('Hola, soy Florencia 👋');await say('Soy profesora de Informática y desarrolladora junior.');await say('¿Qué querés ver primero?');
+Object.keys(R).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=async()=>{await say(k,'me');await say(R[k][0]);
+if(R[k][1]==='cv'){const a=document.createElement('a');a.href='Areco_Lidia_CV.pdf';a.download='';a.click()}else $(R[k][1]).scrollIntoView({behavior:reduce?'auto':'smooth'})};chips.append(b)})})();
+// ítem activo del menú
+const links=[...document.querySelectorAll('nav a')];
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'}).observe&&document.querySelectorAll('main section').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'}).observe(s));
+</script>
+</body>
+</html>

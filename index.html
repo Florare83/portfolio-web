@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lidia Florencia Areco | Desarrolladora Junior</title>
+<title>Lidia Florencia Areco | Desarrolladora en formación</title>
 <meta name="description" content="Desarrolladora en formación y profesora de Informática con más de 15 años de docencia. Proyectos con React, FastAPI, PHP y Laravel. Busco pasantía o puesto junior.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,7 @@ dl{grid-template-columns:1fr;gap:.1rem}dd{margin-bottom:.5rem}
 <aside>
   <div class="who">
     <img class="pic" src="foto.jpg" alt="Florencia Areco">
-    <div><strong>Florencia Areco</strong><small>Desarrolladora Junior</small></div>
+    <div><strong>Florencia Areco</strong><small>Desarrolladora en formación</small></div>
   </div>
   <nav aria-label="Principal">
     <a href="#inicio" class="on">Inicio</a>
@@ -177,7 +177,7 @@ dl{grid-template-columns:1fr;gap:.1rem}dd{margin-bottom:.5rem}
           <div id="log" role="log" aria-live="polite"></div>
           <div id="chips"></div>
         </div>
-        <noscript><p>Profesora de Informática y desarrolladora web junior. <a href="#proyectos">Ver proyectos</a>.</p></noscript>
+        <noscript><p>Profesora de Informática y desarrolladora en formación. <a href="#proyectos">Ver proyectos</a>.</p></noscript>
       </div>
       <div>
         <div class="cmp" id="cmp">
@@ -311,7 +311,7 @@ async function say(t,w='bot'){const b=document.createElement('p');b.className='m
 if(w==='bot'&&!reduce){b.innerHTML='<i></i><i></i><i></i>';await sl(650)}b.textContent=t;log.scrollTop=log.scrollHeight}
 const R={Proyectos:['ControlAR está en producción y fue distinguido entre los mejores proyectos de 2026.','#proyectos'],
 Tecnologías:['Acá tenés lo que uso y para qué.','#stack'],'Descargar CV':['Listo, ahí va mi CV en PDF.','cv'],Contacto:['Escribime, me encanta charlar.','#contacto']};
-(async()=>{await say('Hola, soy Florencia 👋');await say('Soy profesora de Informática y desarrolladora junior.');await say('¿Qué querés ver primero?');
+(async()=>{await say('Hola, soy Florencia 👋');await say('Soy profesora de Informática y desarrolladora en formación.');await say('¿Qué querés ver primero?');
 Object.keys(R).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=async()=>{await say(k,'me');await say(R[k][0]);
 if(R[k][1]==='cv'){const a=document.createElement('a');a.href='CV_Lidia_Florencia_Areco.pdf';a.download='';a.click()}else $(R[k][1]).scrollIntoView({behavior:reduce?'auto':'smooth'})};chips.append(b)})})();
 // formulario de contacto con validación
